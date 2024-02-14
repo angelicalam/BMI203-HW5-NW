@@ -11,7 +11,7 @@ pythonpath = [
 ]
 
 [project]
-name = "nw"
+name = "align"
 authors = [{name = "Angelica Lam", email = "angelicalam120@gmail.com"}]
 readme = "README.md"
 license = {file = "LICENSE"}
