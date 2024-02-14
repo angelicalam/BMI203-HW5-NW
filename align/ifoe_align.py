@@ -138,8 +138,8 @@ class NeedlemanWunsch:
         # (0,0) is never looked at. (0,j) and (i,0) are gaps,
         # where 0 represents no gap and 1 represents gap
         self._align_matrix = np.zeros((len(self._seqA)+1, len(self._seqB)+1))
-        self._align_matrix[0,1] = self.gap_open
-        self._align_matrix[1,0] = self.gap_open
+        self._align_matrix[0,1] = self.gap_open + self.gap_extend
+        self._align_matrix[1,0] = self.gap_open + self.gap_extend
         self._gapA_matrix = np.zeros((len(self._seqA)+1, len(self._seqB)+1))
         self._gapB_matrix = np.zeros((len(self._seqA)+1, len(self._seqB)+1))
         self._gapA_matrix[1,0] = 1
@@ -172,13 +172,13 @@ class NeedlemanWunsch:
                 if self._gapB_matrix[i-1, j] == 1:
                     gap_penalty = self.gap_extend
                 else:
-                    gap_penalty = self.gap_open
+                    gap_penalty = self.gap_open + self.gap_extend
                 indelA = self._align_matrix[i-1, j] + gap_penalty
                 # Bj is aligned with a gap. Use left cell.
                 if self._gapA_matrix[i, j-1] == 1:
                     gap_penalty = self.gap_extend
                 else:
-                    gap_penalty = self.gap_open
+                    gap_penalty = self.gap_open + self.gap_extend
                 indelB = self._align_matrix[i, j-1] + gap_penalty
                 # Assign the max score
                 self._align_matrix[i, j] = np.max([match, indelA, indelB])

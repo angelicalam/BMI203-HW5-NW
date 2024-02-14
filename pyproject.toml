@@ -1,0 +1,26 @@
+[build-system]
+requires = [
+	"flit_core >=3.2,<4",
+	"python_version >= '3.9'"
+	]
+build-backend = "flit_core.buildapi"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "."
+]
+
+[project]
+name = "nw"
+authors = [{name = "Angelica Lam", email = "angelicalam120@gmail.com"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dynamic = ["version", "description"]
+dependencies = [
+    "pytest",
+    "numpy",
+]
+
+[project.urls]
+Home = "https://github.com/angelicalam/BMI203-HW5-NW.git"
