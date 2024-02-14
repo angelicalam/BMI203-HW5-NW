@@ -37,7 +37,20 @@ def main():
     print("\nAlignment scores:")
     for speci in range(len(sorted_species)):
         print(sorted_species[speci], sorted_scores[speci])
-    
+
+"""
+Species BRD2 similarity to human BRD2, in order of most to least:
+tursiops_truncatus
+Mus_musculus
+Gallus_gallus
+Balaeniceps_rex
+
+Alignment scores:
+tursiops_truncatus 3916.0
+Mus_musculus 3682.0
+Gallus_gallus 3164.0
+Balaeniceps_rex 2928.0
+"""
 
 if __name__ == "__main__":
     main()

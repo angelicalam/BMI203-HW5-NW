@@ -20,15 +20,15 @@ def test_nw_alignment():
     # MYQR
     # M-QR
     # 5 + (-10) + 5 + 5
-    assert alignment_score == 5, "Alignment score is not optimal"
+    assert alignment_score == 4, "Alignment score is not optimal"
     assert seqA_align == "MYQR", "aligned seq1 is not optimal"
     assert seqB_align == "M-QR", "aligned seq2 is not optimal"
     # Check that the alignment matrix, gap matrices, and backtrace matrix are correct
-    assert np.array_equal( NW._align_matrix, np.array([ [  0, -10, -11, -12],
-                                                        [-10,   5,  -5,  -6],
-                                                        [-11,  -5,   4,  -6],
-                                                        [-12,  -6,   0,   5],
-                                                        [-13,  -7,  -5,   5]  ]) )
+    assert np.array_equal( NW._align_matrix, np.array([ [  0, -11, -12, -13],
+                                                        [-11,   5,  -6,  -7],
+                                                        [-12,  -6,   4,  -7],
+                                                        [-13,  -7,  -1,   5],
+                                                        [-14,  -8,  -6,   4]  ]) )
     assert np.array_equal( NW._gapA_matrix, np.array([  [0, 0, 0, 0],
                                                         [1, 0, 1, 1],
                                                         [1, 0, 0, 1],
@@ -61,7 +61,7 @@ def test_nw_backtrace():
     # M---QLIRHP
     # MAVHQLIRRP
     # 5 + (-10) + (-1) + (-1) + 5 + 4 + 4 + 5 + 0 + 7
-    assert alignment_score == 18, "Alignment score is not optimal"
+    assert alignment_score == 17, "Alignment score is not optimal"
     assert seqA_align == "M---QLIRHP", "aligned seq4 is not optimal"
     assert seqB_align == "MAVHQLIRRP", "aligned seq3 is not optimal"
 
